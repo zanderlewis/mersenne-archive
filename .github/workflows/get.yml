@@ -23,3 +23,11 @@ jobs:
 
     - name: Run get.py script
       run: python get.py
+    
+    - name: Push changes
+      run: |
+        git config --global user.name 'GitHub Actions'
+        git config --global user.email 'zander@zanderlewis.dev'
+        git add .
+        git commit -m "Update data"
+        git push origin main
