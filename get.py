@@ -8,6 +8,12 @@ url = "https://download.mersenne.ca/download.mersenne.ca_2024-10-01.txt"
 response = requests.get(url)
 commands = response.text.splitlines()
 
+# Create `archive/` if it doesn't exist
+subprocess.run("mkdir -p archive", shell=True)
+
+# cd into `archive/`
+subprocess.run("cd archive", shell=True)
+
 # Execute each command
 for command in commands:
     try:
