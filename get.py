@@ -13,7 +13,7 @@ commands = [command.strip() for command in commands]
 # Create `archive/` if it doesn't exist
 os.makedirs("archive", exist_ok=True)
 
-@retry(stop=stop_after_attempt(5), wait=wait_fixed(2))
+@retry(stop=stop_after_attempt(50), wait=wait_fixed(15))
 def execute_command(command):
     try:
         result = subprocess.run(command, shell=True, check=True, capture_output=True, text=True, cwd="archive")
